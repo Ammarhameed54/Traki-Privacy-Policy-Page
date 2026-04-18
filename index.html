@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Traki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1E6FE8;
+            --primary-variant: #1456B8;
+            --accent: #6EC6FF;
+            --deep-blue: #0A3A8F;
+            --success: #2ECC71;
+            --warning: #F4C430;
+            --error: #D32F2F;
+            --bg: #F6F9FC;
+            --surface: #FFFFFF;
+            --card: #EAF2FF;
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --text-muted: #9E9E9E;
+            --divider: #E0E0E0;
+            --max-width: 740px;
+            --nav-height: 64px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            height: var(--nav-height);
+            background: rgba(246, 249, 252, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--divider);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .top-bar.scrolled { box-shadow: 0 1px 3px rgba(10,58,143,0.06); }
+
+        .top-bar-brand {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none; color: var(--text-primary);
+        }
+
+        .brand-icon {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--deep-blue));
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 16px;
+            position: relative; overflow: hidden;
+        }
+
+        .brand-icon::after {
+            content: '';
+            position: absolute;
+            width: 18px; height: 18px;
+            background: rgba(110,198,255,0.3);
+            border-radius: 50%;
+            top: -4px; right: -4px;
+        }
+
+        .brand-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; font-size: 20px; letter-spacing: -0.3px;
+        }
+
+        .top-bar-meta { font-size: 13px; color: var(--text-muted); }
+
+        .hero {
+            margin-top: var(--nav-height);
+            padding: 56px 24px 44px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px; left: 50%; transform: translateX(-50%);
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(30,111,232,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: var(--card);
+            border: 1px solid rgba(30,111,232,0.12);
+            padding: 6px 16px; border-radius: 100px;
+            font-size: 12.5px; font-weight: 600; color: var(--primary);
+            margin-bottom: 20px; letter-spacing: 0.3px; text-transform: uppercase;
+        }
+
+        .hero-badge i { font-size: 11px; }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(30px, 5vw, 46px);
+            font-weight: 700; line-height: 1.15; letter-spacing: -1px;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--deep-blue));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 16px; color: var(--text-secondary);
+            max-width: 520px; margin: 0 auto 28px; line-height: 1.7;
+        }
+
+        .hero-meta {
+            display: flex; align-items: center; justify-content: center;
+            gap: 20px; flex-wrap: wrap; font-size: 13px; color: var(--text-muted);
+        }
+
+        .hero-meta-item { display: flex; align-items: center; gap: 6px; }
+        .hero-meta-item i { color: var(--primary); font-size: 12px; }
+
+        .content-wrap {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 28px 80px;
+            background: var(--surface);
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -2px 24px rgba(10,58,143,0.05);
+        }
+
+        .policy-section {
+            padding: 48px 0 0;
+            opacity: 0; transform: translateY(14px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .policy-section.visible { opacity: 1; transform: translateY(0); }
+        .policy-section:first-child { padding-top: 40px; }
+
+        .policy-section:not(:last-child) {
+            border-bottom: 1px solid var(--divider);
+            padding-bottom: 48px;
+        }
+
+        .policy-section:last-child { padding-bottom: 48px; }
+
+        .section-header {
+            display: flex; align-items: flex-start; gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .section-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; flex-shrink: 0;
+        }
+
+        .section-icon.blue { background: var(--card); color: var(--primary); }
+        .section-icon.green { background: rgba(46,204,113,0.1); color: var(--success); }
+        .section-icon.amber { background: rgba(244,196,48,0.12); color: #B8960A; }
+        .section-icon.red { background: rgba(211,47,47,0.08); color: var(--error); }
+        .section-icon.deep { background: rgba(10,58,143,0.08); color: var(--deep-blue); }
+        .section-icon.accent { background: rgba(110,198,255,0.15); color: var(--primary-variant); }
+
+        .section-title-group h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 21px; font-weight: 700; letter-spacing: -0.3px;
+            line-height: 1.3;
+        }
+
+        .section-title-group p { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+        .policy-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15.5px; font-weight: 600;
+            margin: 24px 0 8px;
+        }
+
+        .policy-section p {
+            font-size: 14.5px; color: var(--text-secondary);
+            margin-bottom: 12px; line-height: 1.8;
+        }
+
+        .policy-section ul, .policy-section ol {
+            padding-left: 20px; margin-bottom: 14px;
+        }
+
+        .policy-section li {
+            font-size: 14.5px; color: var(--text-secondary);
+            margin-bottom: 6px; line-height: 1.75;
+        }
+
+        .policy-section li::marker { color: var(--primary); }
+        .policy-section strong { color: var(--text-primary); font-weight: 600; }
+
+        .policy-section a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-decoration-color: rgba(30,111,232,0.3);
+            text-underline-offset: 3px;
+            transition: text-decoration-color 0.2s;
+        }
+
+        .policy-section a:hover { text-decoration-color: var(--primary); }
+
+        .info-box {
+            background: var(--card);
+            border: 1px solid rgba(30,111,232,0.12);
+            border-left: 3px solid var(--primary);
+            border-radius: 8px;
+            padding: 14px 16px; margin: 16px 0;
+            font-size: 13.5px; color: var(--text-secondary); line-height: 1.7;
+        }
+
+        .info-box i { color: var(--primary); margin-right: 6px; }
+
+        .warning-box {
+            background: rgba(244,196,48,0.06);
+            border: 1px solid rgba(244,196,48,0.2);
+            border-left: 3px solid var(--warning);
+            border-radius: 8px;
+            padding: 14px 16px; margin: 16px 0;
+            font-size: 13.5px; color: var(--text-secondary); line-height: 1.7;
+        }
+
+        .warning-box i { color: #B8960A; margin-right: 6px; }
+
+        .danger-box {
+            background: rgba(211,47,47,0.04);
+            border: 1px solid rgba(211,47,47,0.14);
+            border-left: 3px solid var(--error);
+            border-radius: 8px;
+            padding: 14px 16px; margin: 16px 0;
+            font-size: 13.5px; color: var(--text-secondary); line-height: 1.7;
+        }
+
+        .danger-box i { color: var(--error); margin-right: 6px; }
+
+        .data-table-wrapper {
+            overflow-x: auto; margin: 16px 0;
+            border-radius: 8px; border: 1px solid var(--divider);
+        }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+        .data-table thead { background: var(--card); }
+
+        .data-table th {
+            text-align: left; padding: 11px 14px;
+            font-weight: 600; font-size: 11.5px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            color: var(--text-secondary); border-bottom: 1px solid var(--divider);
+        }
+
+        .data-table td {
+            padding: 10px 14px; color: var(--text-secondary);
+            border-bottom: 1px solid var(--divider); vertical-align: top;
+        }
+
+        .data-table tbody tr:last-child td { border-bottom: none; }
+        .data-table tbody tr:hover { background: rgba(30,111,232,0.02); }
+
+        .tag {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 11px; font-weight: 600; letter-spacing: 0.2px;
+        }
+
+        .tag-required { background: rgba(211,47,47,0.08); color: var(--error); }
+        .tag-optional { background: rgba(46,204,113,0.1); color: #1D9A53; }
+        .tag-auto { background: var(--card); color: var(--primary); }
+
+        .delete-steps {
+            margin: 20px 0; list-style: none;
+            counter-reset: step; padding-left: 0;
+        }
+
+        .delete-steps li {
+            counter-increment: step;
+            position: relative;
+            padding: 16px 16px 16px 60px;
+            border-left: 2px solid var(--divider);
+            margin-left: 15px;
+            font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+        }
+
+        .delete-steps li:last-child { border-left-color: transparent; }
+
+        .delete-steps li::before {
+            content: counter(step);
+            position: absolute; left: -15px; top: 16px;
+            width: 28px; height: 28px; border-radius: 50%;
+            background: var(--surface);
+            color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; font-size: 13px;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid rgba(30,111,232,0.15);
+            box-shadow: 0 0 0 4px var(--surface);
+        }
+
+        .delete-steps li.step-danger::before {
+            background: rgba(211,47,47,0.08);
+            color: var(--error);
+            border-color: rgba(211,47,47,0.2);
+        }
+
+        .step-label {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600; font-size: 14px; color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .step-desc {
+            display: block; font-size: 13px; color: var(--text-muted); margin-top: 3px;
+        }
+
+        .phone-mockup-wrap { display: flex; justify-content: center; margin: 24px 0 8px; }
+
+        .phone-mockup {
+            width: 250px; background: var(--surface);
+            border: 2px solid var(--divider); border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(10,58,143,0.10);
+        }
+
+        .phone-status-bar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 18px 4px;
+            font-size: 11px; font-weight: 600; color: var(--text-primary);
+        }
+
+        .phone-nav-bar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 16px 10px; border-bottom: 1px solid var(--divider);
+        }
+
+        .phone-nav-bar span {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px; font-weight: 700; color: var(--text-primary);
+        }
+
+        .phone-nav-bar i { font-size: 14px; color: var(--primary); }
+        .phone-body { padding: 12px 16px 16px; }
+
+        .phone-profile-row {
+            display: flex; align-items: center; gap: 12px;
+            padding: 10px 0; border-bottom: 1px solid var(--divider);
+        }
+
+        .phone-avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--deep-blue));
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 15px; font-weight: 700; flex-shrink: 0;
+        }
+
+        .phone-profile-name { font-size: 13.5px; font-weight: 600; color: var(--text-primary); }
+        .phone-profile-email { font-size: 11px; color: var(--text-muted); }
+
+        .phone-menu-item {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 0; border-bottom: 1px solid rgba(224,224,224,0.6);
+            font-size: 13px; color: var(--text-secondary);
+        }
+
+        .phone-menu-item i { width: 18px; text-align: center; font-size: 13px; color: var(--text-muted); }
+        .phone-menu-item.danger { color: var(--error); }
+        .phone-menu-item.danger i { color: var(--error); }
+        .phone-menu-item .chevron { margin-left: auto; font-size: 10px; color: var(--text-muted); }
+        .phone-menu-item.danger .chevron { color: var(--error); }
+
+        .phone-divider-label {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.8px; color: var(--text-muted); padding: 12px 0 4px;
+        }
+
+        .dialog-mockup-wrap { display: flex; justify-content: center; margin: 24px 0 8px; }
+
+        .dialog-mockup {
+            width: 250px; background: var(--surface);
+            border: 2px solid var(--divider); border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(10,58,143,0.10);
+        }
+
+        .dialog-body { padding: 20px 16px 14px; text-align: center; }
+
+        .dialog-icon-circle {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(211,47,47,0.08);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 10px; color: var(--error); font-size: 18px;
+        }
+
+        .dialog-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14.5px; font-weight: 700; color: var(--text-primary); margin-bottom: 5px;
+        }
+
+        .dialog-text {
+            font-size: 11.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;
+        }
+
+        .dialog-input {
+            width: 100%; padding: 8px 10px;
+            border: 1.5px solid var(--divider); border-radius: 8px;
+            font-size: 12px; color: var(--text-primary);
+            background: var(--bg); outline: none; font-family: 'DM Sans', sans-serif;
+        }
+
+        .dialog-input::placeholder { color: var(--text-muted); font-size: 11.5px; }
+
+        .dialog-input.error-state {
+            border-color: var(--error);
+            background: rgba(211,47,47,0.03);
+        }
+
+        .dialog-input.delete-state {
+            border-color: var(--error);
+            background: rgba(211,47,47,0.04);
+            color: var(--error);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 12.5px;
+        }
+
+        .dialog-error-msg {
+            font-size: 10.5px; color: var(--error);
+            text-align: left; margin-top: 5px;
+            display: flex; align-items: center; gap: 4px;
+        }
+
+        .dialog-actions { display: flex; border-top: 1px solid var(--divider); }
+
+        .dialog-btn {
+            flex: 1; padding: 11px 0; font-size: 13px; font-weight: 600;
+            border: none; cursor: default; font-family: 'DM Sans', sans-serif;
+        }
+
+        .dialog-btn-cancel {
+            color: var(--primary); background: transparent;
+            border-right: 1px solid var(--divider);
+        }
+
+        .dialog-btn-delete { color: var(--error); background: transparent; font-weight: 700; }
+        .dialog-btn-delete.btn-disabled { color: var(--text-muted); }
+
+        .mockup-caption {
+            text-align: center; font-size: 12px;
+            color: var(--text-muted); margin-top: -2px; margin-bottom: 20px;
+        }
+
+        .policy-footer {
+            text-align: center; padding: 36px 24px 48px;
+            border-top: 1px solid var(--divider);
+            max-width: var(--max-width); margin: 0 auto;
+        }
+
+        .policy-footer p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+
+        .footer-links {
+            display: flex; justify-content: center;
+            gap: 24px; margin-top: 14px; flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 13px; color: var(--primary);
+            text-decoration: none; font-weight: 500; transition: opacity 0.2s;
+        }
+
+        .footer-links a:hover { opacity: 0.7; }
+
+        .back-to-top {
+            position: fixed; bottom: 28px; right: 28px;
+            width: 44px; height: 44px; border-radius: 12px;
+            background: var(--primary); color: #fff; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; font-size: 16px;
+            box-shadow: 0 4px 16px rgba(30,111,232,0.3);
+            opacity: 0; transform: translateY(12px);
+            transition: all 0.3s ease; z-index: 90;
+        }
+
+        .back-to-top.visible { opacity: 1; transform: translateY(0); }
+
+        .back-to-top:hover {
+            background: var(--primary-variant);
+            box-shadow: 0 6px 24px rgba(30,111,232,0.4);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 40px 20px 32px; }
+            .hero-meta { flex-direction: column; gap: 8px; }
+            .content-wrap { padding: 0 18px 60px; border-radius: 20px 20px 0 0; }
+            .top-bar-meta { display: none; }
+            .phone-mockup, .dialog-mockup { width: 220px; }
+            .policy-section { padding: 36px 0 0; }
+            .policy-section:not(:last-child) { padding-bottom: 36px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .policy-section { opacity: 1; transform: none; }
+            .back-to-top { transition: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-bar" id="topBar" role="navigation" aria-label="Main navigation">
+        <a href="#" class="top-bar-brand" aria-label="Traki Home">
+            <div class="brand-icon"><i class="fa-solid fa-wave-square"></i></div>
+            <span class="brand-name">Traki</span>
+        </a>
+        <span class="top-bar-meta">Privacy Policy</span>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Legal Document</div>
+        <h1>Privacy <span>Policy</span></h1>
+        <p class="hero-sub">
+            We built Traki to help you stay on top of academic research without compromising your personal data. Here is exactly what we collect, why, and how you stay in control.
+        </p>
+        <div class="hero-meta">
+            <span class="hero-meta-item"><i class="fa-regular fa-calendar"></i> Effective: July 1, 2025</span>
+            <span class="hero-meta-item"><i class="fa-regular fa-clock"></i> Last updated: July 1, 2025</span>
+            <span class="hero-meta-item"><i class="fa-solid fa-globe"></i> GDPR &amp; CCPA Compliant</span>
+        </div>
+    </header>
+
+    <main class="content-wrap" role="main">
+
+        <section class="policy-section" id="sec-intro">
+            <div class="section-header">
+                <div class="section-icon blue"><i class="fa-solid fa-file-lines"></i></div>
+                <div class="section-title-group">
+                    <h2>1. Introduction</h2>
+                    <p>Who we are and what this policy covers</p>
+                </div>
+            </div>
+            <p>Welcome to Traki ("we," "our," or "us"). Traki is a mobile application designed for researchers, academics, and students to discover, track, and summarize academic papers from sources like arXiv, Crossref, and PubMed.</p>
+            <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our iOS and Android applications (the "App"), our associated web services, and any related features. Please read this policy carefully. By using Traki, you agree to the practices described herein.</p>
+            <div class="info-box"><i class="fa-solid fa-circle-info"></i> <strong>Key Principle:</strong> We collect only what is necessary to deliver a great research-tracking experience. We never sell your personal data to third parties.</div>
+        </section>
+
+        <section class="policy-section" id="sec-data">
+            <div class="section-header">
+                <div class="section-icon deep"><i class="fa-solid fa-database"></i></div>
+                <div class="section-title-group">
+                    <h2>2. Data We Collect</h2>
+                    <p>Categories and types of information gathered</p>
+                </div>
+            </div>
+            <p>We collect information in the following categories:</p>
+            <h3>2.1 Account &amp; Identity Data</h3>
+            <div class="data-table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Data Type</th><th>Source</th><th>Purpose</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr><td>Email address</td><td>Apple / Google Sign-In</td><td>Account identification, recovery</td><td><span class="tag tag-required">Required</span></td></tr>
+                        <tr><td>Display name</td><td>Apple / Google Sign-In</td><td>Personalization</td><td><span class="tag tag-auto">Automatic</span></td></tr>
+                        <tr><td>Unique user ID (Firebase UID)</td><td>Generated by Firebase</td><td>Internal data linking</td><td><span class="tag tag-auto">Automatic</span></td></tr>
+                        <tr><td>Sign-in provider token</td><td>Apple / Google</td><td>Authentication</td><td><span class="tag tag-required">Required</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>2.2 Research Preferences &amp; Usage Data</h3>
+            <ul>
+                <li><strong>Selected research goals</strong> — chosen during onboarding (Screen 1)</li>
+                <li><strong>Topic tracks</strong> — up to 3 topics for free users, unlimited for PRO subscribers, including preset chip selections and custom free-text inputs</li>
+                <li><strong>Alert settings</strong> — notification preferences per track</li>
+                <li><strong>Saved papers &amp; collections</strong> — papers you bookmark, up to 50 for free users, unlimited for PRO</li>
+                <li><strong>"Mark as Read" history</strong> — records of papers you have read</li>
+                <li><strong>AI summary requests</strong> — count and content of requested summaries (capped at 3/week for free users)</li>
+                <li><strong>Search queries</strong> — terms entered in the in-app search bar</li>
+                <li><strong>Filter &amp; sort preferences</strong> — applied feed configurations</li>
+            </ul>
+            <h3>2.3 Device &amp; Technical Data</h3>
+            <ul>
+                <li>Device model, operating system version, and app version</li>
+                <li>Unique device identifiers (for crash reporting and analytics, anonymized where possible)</li>
+                <li>IP address (collected at the server level for security, not stored persistently)</li>
+                <li>Purchase receipts and subscription status via RevenueCat</li>
+            </ul>
+            <h3>2.4 Data You Do <em>Not</em> Provide Directly</h3>
+            <p>Paper metadata (titles, abstracts, authors, DOIs) is fetched from public academic APIs (arXiv, Crossref, PubMed) and is <strong>not</strong> considered your personal data. This information is cached temporarily for performance and is subject to the respective API providers' terms of service.</p>
+        </section>
+
+        <section class="policy-section" id="sec-usage">
+            <div class="section-header">
+                <div class="section-icon green"><i class="fa-solid fa-gears"></i></div>
+                <div class="section-title-group">
+                    <h2>3. How We Use Your Data</h2>
+                    <p>Purposes and legal bases for processing</p>
+                </div>
+            </div>
+            <p>We process your data for the following purposes:</p>
+            <ol>
+                <li><strong>Provide core services:</strong> Authenticate your account, maintain your research tracks, display paper feeds, and enable saving/reading functionality.</li>
+                <li><strong>Deliver AI summaries:</strong> Send paper text to our AI provider (OpenAI or Google Gemini) to generate short plain-language summaries as requested. Paper content is not stored by the AI provider beyond the request lifecycle.</li>
+                <li><strong>Send notifications:</strong> Deliver alerts about new papers matching your tracks, based on your alert settings. Notifications are processed via Firebase Cloud Messaging.</li>
+                <li><strong>Manage subscriptions:</strong> Process in-app purchases, verify PRO status via RevenueCat, and enforce free-tier limits (3 tracks, 50 saves, 3 AI summaries/week).</li>
+                <li><strong>Improve the app:</strong> Analyze anonymized usage patterns to fix bugs, optimize performance, and guide feature development.</li>
+                <li><strong>Security &amp; fraud prevention:</strong> Detect unauthorized access, abuse, and ensure platform integrity.</li>
+                <li><strong>Legal compliance:</strong> Fulfill legal obligations under applicable data protection laws.</li>
+            </ol>
+            <div class="info-box"><i class="fa-solid fa-scale-balanced"></i> <strong>Legal Bases (GDPR):</strong> Consent (for optional data), Contract performance (to deliver the service), Legitimate interest (security and improvement), and Legal obligation (record-keeping for transactions).</div>
+        </section>
+
+        <section class="policy-section" id="sec-third">
+            <div class="section-header">
+                <div class="section-icon amber"><i class="fa-solid fa-puzzle-piece"></i></div>
+                <div class="section-title-group">
+                    <h2>4. Third-Party Services</h2>
+                    <p>External services integrated into Traki</p>
+                </div>
+            </div>
+            <p>Traki relies on the following third-party services. Each operates under its own privacy policy:</p>
+            <div class="data-table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Service</th><th>Role</th><th>Data Shared</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Firebase</strong> (Google)</td><td>Authentication, Firestore database, Cloud Messaging, Cloud Functions, Hosting</td><td>User ID, email, device token, preferences, saved papers</td></tr>
+                        <tr><td><strong>Apple Sign-In</strong></td><td>Authentication provider</td><td>User ID, name, email (per Apple's privacy rules; email may be hidden)</td></tr>
+                        <tr><td><strong>Google Sign-In</strong></td><td>Authentication provider</td><td>User ID, name, email, profile picture</td></tr>
+                        <tr><td><strong>arXiv API</strong></td><td>Paper metadata source</td><td>Search queries (no personal data)</td></tr>
+                        <tr><td><strong>Crossref API</strong></td><td>Paper metadata source</td><td>Search queries (no personal data)</td></tr>
+                        <tr><td><strong>PubMed API</strong></td><td>Paper metadata source</td><td>Search queries (no personal data)</td></tr>
+                        <tr><td><strong>OpenAI / Gemini</strong></td><td>AI summary generation</td><td>Paper abstract/text (sent per request, not stored by provider)</td></tr>
+                        <tr><td><strong>RevenueCat</strong></td><td>Subscription management &amp; receipt validation</td><td>Anonymous app user ID, purchase receipts, subscription status</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="warning-box"><i class="fa-solid fa-triangle-exclamation"></i> These services may process data in jurisdictions outside your own. We only select providers that maintain strong data protection standards. Review each provider's privacy policy for full details.</div>
+        </section>
+
+        <section class="policy-section" id="sec-ai">
+            <div class="section-header">
+                <div class="section-icon accent"><i class="fa-solid fa-microchip"></i></div>
+                <div class="section-title-group">
+                    <h2>5. AI &amp; Data Processing</h2>
+                    <p>How artificial intelligence handles your data</p>
+                </div>
+            </div>
+            <p>Traki uses large language model APIs to generate short summaries of academic papers. Here is how it works:</p>
+            <h3>5.1 What Is Sent to AI</h3>
+            <p>When you request an AI summary, the paper's title and abstract (and, where applicable, key methodology excerpts) are sent to our AI provider. <strong>No personal data</strong> (your name, email, account details, or reading history) is included in these requests.</p>
+            <h3>5.2 AI Provider Data Policy</h3>
+            <p>We use API endpoints configured to <strong>not</strong> use your input data for model training. Paper text is processed in real-time and discarded after the response is returned. We do not store full paper text in our AI request logs.</p>
+            <h3>5.3 Summary Types (PRO)</h3>
+            <p>PRO subscribers have access to extended AI insights per paper:</p>
+            <ul>
+                <li><strong>Plain-language summary</strong> — a 2-3 line non-technical overview</li>
+                <li><strong>Beginner explanation</strong> — context for those new to the field</li>
+                <li><strong>Why it matters</strong> — significance and real-world implications</li>
+                <li><strong>Methods breakdown</strong> — simplified methodology overview</li>
+                <li><strong>Weekly What Changed</strong> — per-track summary of new papers, generated by scheduled Firebase Cloud Functions</li>
+            </ul>
+            <div class="info-box"><i class="fa-solid fa-circle-info"></i> AI-generated summaries are provided for convenience and should not replace reading the original paper. They may occasionally contain inaccuracies.</div>
+        </section>
+
+        <section class="policy-section" id="sec-storage">
+            <div class="section-header">
+                <div class="section-icon blue"><i class="fa-solid fa-lock"></i></div>
+                <div class="section-title-group">
+                    <h2>6. Data Storage &amp; Security</h2>
+                    <p>Where and how your data is protected</p>
+                </div>
+            </div>
+            <h3>6.1 Storage Location</h3>
+            <p>Your personal data is stored in <strong>Google Cloud Platform (GCP)</strong> via Firebase Firestore, located in the European Union (EU region). This ensures compliance with GDPR data residency requirements.</p>
+            <h3>6.2 Security Measures</h3>
+            <p>We implement industry-standard security practices including:</p>
+            <ul>
+                <li><strong>Encryption in transit:</strong> All data is transmitted over TLS 1.2+ / HTTPS</li>
+                <li><strong>Encryption at rest:</strong> Firestore data is encrypted by default on GCP</li>
+                <li><strong>Firebase Security Rules:</strong> Server-side rules ensure users can only access their own data</li>
+                <li><strong>Authentication:</strong> All API endpoints require valid Firebase Auth tokens</li>
+                <li><strong>No raw credentials stored:</strong> We do not store passwords; authentication is delegated to Apple and Google</li>
+                <li><strong>Image caching:</strong> Paper thumbnail images are cached locally on-device using standard Flutter image caching; no sensitive data is cached insecurely</li>
+            </ul>
+            <h3>6.3 Limitations</h3>
+            <p>While we strive to protect your data, no method of electronic storage or transmission is 100% secure. We cannot guarantee absolute security but commit to promptly addressing any reported vulnerabilities.</p>
+        </section>
+
+        <section class="policy-section" id="sec-sharing">
+            <div class="section-header">
+                <div class="section-icon red"><i class="fa-solid fa-share-nodes"></i></div>
+                <div class="section-title-group">
+                    <h2>7. Data Sharing</h2>
+                    <p>Who receives your data and under what circumstances</p>
+                </div>
+            </div>
+            <p><strong>We do not sell, rent, or trade your personal data.</strong></p>
+            <p>We may share limited data only in these scenarios:</p>
+            <ol>
+                <li><strong>Service providers:</strong> With the third-party services listed in Section 4, solely for the purposes described therein and under contractual data processing agreements.</li>
+                <li><strong>Legal requirements:</strong> If required by law, court order, governmental regulation, or legal process. We will notify you where legally permitted.</li>
+                <li><strong>Safety:</strong> To prevent fraud, protect the rights or safety of Traki, our users, or the public.</li>
+                <li><strong>Business transfer:</strong> In the event of a merger, acquisition, reorganization, or sale of assets, your data may be transferred as part of that transaction. We will notify affected users via in-app notice and/or email.</li>
+            </ol>
+            <div class="info-box"><i class="fa-solid fa-circle-info"></i> <strong>Aggregated &amp; Anonymized Data:</strong> We may share aggregated, non-personally-identifiable usage statistics (e.g., "X% of users track machine learning topics") for analytical or promotional purposes. This data cannot be traced back to you.</div>
+        </section>
+
+        <section class="policy-section" id="sec-subscription">
+            <div class="section-header">
+                <div class="section-icon amber"><i class="fa-solid fa-credit-card"></i></div>
+                <div class="section-title-group">
+                    <h2>8. Subscriptions &amp; Payments</h2>
+                    <p>How payment data is handled</p>
+                </div>
+            </div>
+            <p>Traki offers an optional PRO subscription with the following plans:</p>
+            <ul>
+                <li><strong>Monthly:</strong> &euro;6.99/month with a 30-day free trial</li>
+                <li><strong>Yearly:</strong> &euro;59.99/year with a 30-day free trial</li>
+            </ul>
+            <h3>8.1 Payment Processing</h3>
+            <p>All payments are processed through the <strong>Apple App Store</strong> or <strong>Google Play Store</strong>. Traki <strong>does not</strong> receive, store, or have access to your credit card number, bank account details, or full payment instrument information. Payment security is entirely managed by Apple and Google.</p>
+            <h3>8.2 RevenueCat</h3>
+            <p>We use RevenueCat to validate purchase receipts, manage subscription lifecycle (trial, renewal, cancellation, expiration), and sync PRO status across devices. RevenueCat receives an anonymous app user ID and purchase receipts — not your personal identity data.</p>
+            <h3>8.3 Free Trial</h3>
+            <p>The 30-day free trial begins at subscription confirmation. You will not be charged until the trial ends. You may cancel at any time during the trial via your device's subscription settings. If you cancel, PRO features remain active until the trial period expires.</p>
+            <h3>8.4 Subscription Management</h3>
+            <p>All subscription management (cancellation, refund requests, plan changes) is handled through:</p>
+            <ul>
+                <li><strong>iOS:</strong> Settings &rarr; Your Name &rarr; Subscriptions &rarr; Traki</li>
+                <li><strong>Android:</strong> Google Play Store &rarr; Profile &rarr; Payments &amp; Subscriptions &rarr; Traki</li>
+            </ul>
+            <p>The "Restore Purchases" button in the app re-verifies your subscription with RevenueCat if you reinstall or switch devices.</p>
+        </section>
+
+        <section class="policy-section" id="sec-children">
+            <div class="section-header">
+                <div class="section-icon red"><i class="fa-solid fa-child"></i></div>
+                <div class="section-title-group">
+                    <h2>9. Children's Privacy</h2>
+                    <p>Protection for users under the age of consent</p>
+                </div>
+            </div>
+            <p>Traki is a research tool primarily designed for university students, academics, and professionals. While we do not explicitly target minors, we recognize that students of various ages may use the app.</p>
+            <p>We do <strong>not</strong> knowingly collect personal data from children under 16 years of age (or under 13 in jurisdictions where that is the applicable threshold, such as under COPPA in the United States). If we discover that we have inadvertently collected data from a child below the applicable age, we will take immediate steps to delete that data from our servers.</p>
+            <p>If you believe a child has provided us with personal data, please contact us at the address provided in Section 16.</p>
+        </section>
+
+        <section class="policy-section" id="sec-rights">
+            <div class="section-header">
+                <div class="section-icon green"><i class="fa-solid fa-user-shield"></i></div>
+                <div class="section-title-group">
+                    <h2>10. Your Rights</h2>
+                    <p>Data subject rights and how to exercise them</p>
+                </div>
+            </div>
+            <p>Depending on your location, you may have the following rights under GDPR, CCPA, or other applicable laws:</p>
+            <div class="data-table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Right</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Access</strong></td><td>Request a copy of all personal data we hold about you</td></tr>
+                        <tr><td><strong>Rectification</strong></td><td>Request correction of inaccurate or incomplete data</td></tr>
+                        <tr><td><strong>Erasure ("Right to be Forgotten")</strong></td><td>Request deletion of your personal data, subject to legal exceptions</td></tr>
+                        <tr><td><strong>Portability</strong></td><td>Receive your data in a structured, machine-readable format (JSON/CSV)</td></tr>
+                        <tr><td><strong>Restriction</strong></td><td>Request that we limit how we process your data</td></tr>
+                        <tr><td><strong>Objection</strong></td><td>Object to processing based on legitimate interests</td></tr>
+                        <tr><td><strong>Withdraw Consent</strong></td><td>Withdraw any consent-based processing at any time</td></tr>
+                        <tr><td><strong>Opt-Out of Sale (CCPA)</strong></td><td>We do not sell personal data, but you may formally request this confirmation</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>You may exercise these rights by emailing <a href="mailto:privacy@traki.app">privacy@traki.app</a> with the email address associated with your Traki account. We will respond within 30 days (or sooner where required by local law). You may also request a data export through in-app settings or revoke notification permissions through your device settings.</p>
+        </section>
+
+        <section class="policy-section" id="sec-cookies">
+            <div class="section-header">
+                <div class="section-icon deep"><i class="fa-solid fa-cookie-bite"></i></div>
+                <div class="section-title-group">
+                    <h2>11. Cookies &amp; Tracking</h2>
+                    <p>Online tracking technologies used</p>
+                </div>
+            </div>
+            <p>Traki is primarily a native mobile application and does not use traditional web cookies. However, the following tracking and identification mechanisms are used:</p>
+            <ul>
+                <li><strong>Firebase Installation ID:</strong> A unique identifier assigned to each app installation, used for push notifications, analytics, and crash reporting. This is not a cross-app tracking identifier.</li>
+                <li><strong>Firebase Analytics:</strong> Collects anonymized event data (e.g., screen views, feature usage) to improve the app. We do not link analytics data to individual user accounts.</li>
+                <li><strong>Crashlytics:</strong> Collects crash logs including device model and OS version when the app encounters an error. Logs may contain fragmentary user data; we minimize this risk.</li>
+                <li><strong>Device advertising identifiers:</strong> Traki does <strong>not</strong> access or use device advertising identifiers (IDFA/GAID) for any purpose.</li>
+            </ul>
+            <div class="info-box"><i class="fa-solid fa-circle-info"></i> If this policy is viewed on a web page, standard server logs may record IP address, browser type, and page access time. These logs are retained for 90 days and used solely for security and performance monitoring.</div>
+        </section>
+
+        <section class="policy-section" id="sec-intl">
+            <div class="section-header">
+                <div class="section-icon amber"><i class="fa-solid fa-earth-europe"></i></div>
+                <div class="section-title-group">
+                    <h2>12. International Data Transfers</h2>
+                    <p>Cross-border data movement</p>
+                </div>
+            </div>
+            <p>Your primary data is stored in the EU (GCP EU region). However, some third-party services listed in Section 4 may process data outside the European Economic Area (EEA), including in the United States.</p>
+            <p>We ensure adequate protection for such transfers through:</p>
+            <ul>
+                <li><strong>Standard Contractual Clauses (SCCs):</strong> Where applicable, as adopted by the European Commission</li>
+                <li><strong>Data Processing Agreements (DPAs):</strong> With all sub-processors, incorporating appropriate safeguards</li>
+                <li><strong>EU-US Data Privacy Framework:</strong> For providers certified under this framework (e.g., Google Cloud)</li>
+                <li><strong>Supplementary measures:</strong> Technical and organizational measures where required by guidance from European data protection authorities</li>
+            </ul>
+        </section>
+
+        <section class="policy-section" id="sec-retention">
+            <div class="section-header">
+                <div class="section-icon blue"><i class="fa-solid fa-hourglass-half"></i></div>
+                <div class="section-title-group">
+                    <h2>13. Data Retention</h2>
+                    <p>How long we keep your data</p>
+                </div>
+            </div>
+            <div class="data-table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Data Category</th><th>Retention Period</th></tr></thead>
+                    <tbody>
+                        <tr><td>Account data (email, name, UID)</td><td>Until account deletion</td></tr>
+                        <tr><td>Research tracks &amp; preferences</td><td>Until account deletion or manual removal</td></tr>
+                        <tr><td>Saved papers &amp; collections</td><td>Until account deletion or manual removal</td></tr>
+                        <tr><td>Reading history ("Mark as Read")</td><td>Until account deletion</td></tr>
+                        <tr><td>AI summary request logs</td><td>30 days (then auto-purged)</td></tr>
+                        <tr><td>Purchase/subscription records</td><td>Required by law (typically 7 years for tax compliance in the EU)</td></tr>
+                        <tr><td>Analytics &amp; crash data</td><td>90 days (anonymized), up to 26 months in aggregate</td></tr>
+                        <tr><td>Push notification tokens</td><td>Until revoked or account deletion</td></tr>
+                        <tr><td>Deleted account data</td><td>Removed within 30 days of deletion request</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box"><i class="fa-solid fa-circle-info"></i> Deduplicated paper metadata cached for feed performance may persist temporarily after account deletion but contains no personal data and is refreshed on the next API sync cycle.</div>
+        </section>
+
+        <!-- 14. How to Delete Your Account -->
+        <section class="policy-section" id="sec-delete">
+            <div class="section-header">
+                <div class="section-icon red"><i class="fa-solid fa-user-xmark"></i></div>
+                <div class="section-title-group">
+                    <h2>14. How to Delete Your Account</h2>
+                    <p>Step-by-step guide with Google re-authentication</p>
+                </div>
+            </div>
+            <p>You can permanently delete your Traki account and all associated data directly from the app. Deletion is <strong>irreversible</strong> — all research tracks, saved papers, reading history, collections, and AI summary history will be permanently erased.</p>
+
+            <div class="danger-box"><i class="fa-solid fa-triangle-exclamation"></i> <strong>Before proceeding:</strong> Cancel any active PRO subscription through the App Store or Google Play first. Deleting your account does not automatically cancel your subscription — you will continue to be billed until you cancel through the store.</div>
+
+            <!-- Profile screen mockup -->
+            <div class="phone-mockup-wrap">
+                <div class="phone-mockup">
+                    <div class="phone-status-bar">
+                        <span>9:41</span>
+                        <span><i class="fa-solid fa-signal" style="font-size:10px"></i>&nbsp;&nbsp;<i class="fa-solid fa-wifi" style="font-size:10px"></i>&nbsp;&nbsp;<i class="fa-solid fa-battery-full" style="font-size:10px"></i></span>
+                    </div>
+                    <div class="phone-nav-bar">
+                        <i class="fa-solid fa-chevron-left"></i>
+                        <span>Profile</span>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    <div class="phone-body">
+                        <div class="phone-profile-row">
+                            <div class="phone-avatar">A</div>
+                            <div>
+                                <div class="phone-profile-name">Alex Chen</div>
+                                <div class="phone-profile-email">alex@university.edu</div>
+                            </div>
+                        </div>
+                        <div class="phone-divider-label">Preferences</div>
+                        <div class="phone-menu-item"><i class="fa-solid fa-bell"></i><span>Push Notifications</span><i class="fa-solid fa-chevron-right chevron"></i></div>
+                        <div class="phone-menu-item"><i class="fa-solid fa-envelope"></i><span>Email Digest</span><i class="fa-solid fa-chevron-right chevron"></i></div>
+                        <div class="phone-divider-label">Account</div>
+                        <div class="phone-menu-item"><i class="fa-solid fa-shield-halved"></i><span>Privacy &amp; Security</span><i class="fa-solid fa-chevron-right chevron"></i></div>
+                        <div class="phone-menu-item"><i class="fa-solid fa-circle-question"></i><span>Help &amp; Support</span><i class="fa-solid fa-chevron-right chevron"></i></div>
+                        <div class="phone-menu-item danger" style="border-bottom:none;"><i class="fa-solid fa-trash-can"></i><span>Delete Account</span><i class="fa-solid fa-chevron-right chevron"></i></div>
+                    </div>
+                </div>
+            </div>
+            <p class="mockup-caption">Profile screen — "Delete Account" sits inside the Account section alongside Privacy &amp; Security and Help &amp; Support</p>
+
+            <!-- Steps -->
+            <ol class="delete-steps">
+                <li>
+                    <span class="step-label">Open your Profile</span>
+                    Launch Traki and tap the <strong>Profile</strong> tab in the bottom navigation bar.
+                    <span class="step-desc">This opens your account screen showing your name, email, preferences, and account options.</span>
+                </li>
+                <li>
+                    <span class="step-label">Tap "Delete Account" in the Account section</span>
+                    Scroll down to the <strong>ACCOUNT</strong> section — the grouped list that contains Privacy &amp; Security and Help &amp; Support. Tap <strong>"Delete Account"</strong> at the bottom of that group.
+                    <span class="step-desc">This opens the first confirmation dialog. Nothing is deleted yet.</span>
+                </li>
+                <li>
+                    <span class="step-label">Read the caution warning carefully</span>
+                    A warning dialog appears listing everything that will be permanently erased: your research tracks, saved papers, reading history, AI digests, and PRO benefits. A banner clearly states <em>"This action is permanent and cannot be undone."</em>
+                    <span class="step-desc">Take a moment to review what you will lose. There is no undo.</span>
+                </li>
+                <li>
+                    <span class="step-label">Tap "Continue" to proceed</span>
+                    If you still wish to delete your account, tap the red <strong>"Continue"</strong> button. This advances to the final confirmation step.
+                    <span class="step-desc">Tapping "Cancel" at any point safely dismisses the flow without making any changes.</span>
+                </li>
+                <li>
+                    <span class="step-label">Type DELETE to confirm</span>
+                    A second dialog asks you to type the word <strong>DELETE</strong> (in capitals) into the text field. The red "Delete" button remains disabled and faded until the word is typed exactly, preventing accidental deletion.
+                    <span class="step-desc">This is a deliberate friction step — you must consciously type the confirmation word before proceeding.</span>
+                </li>
+                <li class="step-danger">
+                    <span class="step-label">Complete Google re-authentication — your account is permanently deleted</span>
+                    After tapping "Delete," your device will show the <strong>Google account picker</strong>. Select your account to re-authenticate. This proves you are the account owner and satisfies Firebase's security requirement for account deletion. Once confirmed, all your data is immediately queued for permanent removal from our servers within 30 days. You will be signed out and returned to the sign-in screen.
+                    <span class="step-desc">The action is irreversible. Since Traki uses Google Sign-In exclusively, re-authenticating through Google replaces a traditional password entry.</span>
+                </li>
+            </ol>
+
+            <!-- Confirmation dialog mockup -->
+            <div class="dialog-mockup-wrap">
+                <div class="dialog-mockup">
+                    <div class="dialog-body">
+                        <div class="dialog-icon-circle"><i class="fa-solid fa-trash-can"></i></div>
+                        <div class="dialog-title">Final Confirmation</div>
+                        <div class="dialog-text">To permanently delete your account, please type <strong style="color:var(--error);letter-spacing:1px;">DELETE</strong> in the field below.</div>
+                        <input type="text" class="dialog-input delete-state" value="DELETE" readonly>
+                    </div>
+                    <div class="dialog-actions">
+                        <button class="dialog-btn dialog-btn-cancel">Cancel</button>
+                        <button class="dialog-btn dialog-btn-delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <p class="mockup-caption">Final confirmation dialog — the Delete button activates only when "DELETE" is typed exactly</p>
+
+            <h3>What Gets Deleted</h3>
+            <ul>
+                <li>Your Firebase Auth account record</li>
+                <li>All research tracks and topic configurations</li>
+                <li>All saved papers and custom collections</li>
+                <li>Complete "Mark as Read" history</li>
+                <li>AI digest and summary history</li>
+                <li>Alert and notification preferences</li>
+                <li>Push notification token stored on our servers</li>
+            </ul>
+
+            <h3>What Is NOT Deleted</h3>
+            <ul>
+                <li><strong>Subscription billing:</strong> You must cancel separately via the App Store or Google Play. Deletion does not stop billing.</li>
+                <li><strong>Anonymized analytics:</strong> Aggregated usage data that cannot identify you is retained per our analytics retention policy (Section 13).</li>
+                <li><strong>Purchase records:</strong> RevenueCat receipt records are retained for legal/tax compliance for up to 7 years, but are anonymized and cannot be linked to your account.</li>
+                <li><strong>Paper metadata cache:</strong> Cached arXiv/Crossref/PubMed data on our servers contains no personal data and will be naturally refreshed.</li>
+            </ul>
+
+            <div class="warning-box"><i class="fa-solid fa-triangle-exclamation"></i> <strong>Why Google re-authentication is required:</strong> Traki uses Google Sign-In exclusively — there is no separate password. Re-authenticating through Google before deletion prevents unauthorized removal of your account (e.g., if someone gains brief access to your unlocked device). If you have trouble completing the Google sign-in step, ensure your Google account is accessible on your device before attempting deletion again.</div>
+        </section>
+
+        <section class="policy-section" id="sec-changes">
+            <div class="section-header">
+                <div class="section-icon deep"><i class="fa-solid fa-pen-to-square"></i></div>
+                <div class="section-title-group">
+                    <h2>15. Changes to This Policy</h2>
+                    <p>How and when we update this document</p>
+                </div>
+            </div>
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices, new features, legal requirements, or third-party provider policies. When we make changes:</p>
+            <ol>
+                <li>We will update the "Last updated" date at the top of this page.</li>
+                <li>For <strong>material changes</strong> (those that affect what data we collect, how we use it, or with whom we share it), we will notify you via:
+                    <ul>
+                        <li>An in-app notification/banner at least 14 days before the change takes effect</li>
+                        <li>An email to the address associated with your account (if applicable)</li>
+                    </ul>
+                </li>
+                <li>Continued use of Traki after the effective date constitutes acceptance of the updated policy.</li>
+            </ol>
+            <p>We encourage you to review this page periodically. A version history is maintained internally and can be provided upon request.</p>
+        </section>
+
+        <section class="policy-section" id="sec-contact">
+            <div class="section-header">
+                <div class="section-icon green"><i class="fa-solid fa-envelope"></i></div>
+                <div class="section-title-group">
+                    <h2>16. Contact Us</h2>
+                    <p>How to reach us with questions or requests</p>
+                </div>
+            </div>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+            <h3>Data Protection Officer / Privacy Team</h3>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:privacy@traki.app">privacy@traki.app</a></li>
+                <li><strong>General Support:</strong> <a href="mailto:support@traki.app">support@traki.app</a></li>
+            </ul>
+            <h3>Data Controller</h3>
+            <ul>
+                <li><strong>Entity:</strong> Traki (legal entity name to be inserted before App Store launch)</li>
+                <li><strong>Address:</strong> [Full registered address to be inserted]</li>
+                <li><strong>EU Representative:</strong> [To be appointed if based outside EEA]</li>
+            </ul>
+            <h3>Supervisory Authority</h3>
+            <p>If you are in the EU/EEA and are unsatisfied with our response to a data rights request, you have the right to lodge a complaint with your local data protection supervisory authority.</p>
+            <div class="info-box"><i class="fa-solid fa-circle-info"></i> We aim to respond to all privacy-related inquiries within <strong>14 business days</strong> and to fulfill data subject requests within <strong>30 calendar days</strong>, extendable by a further 60 days for complex requests (with notice).</div>
+        </section>
+
+    </main>
+
+    <footer class="policy-footer">
+        <p>This Privacy Policy is part of the legal framework governing your use of Traki. It should be read alongside our Terms of Service.</p>
+        <div class="footer-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Licenses</a>
+            <a href="#">App Store</a>
+            <a href="#">Google Play</a>
+        </div>
+        <p style="margin-top: 18px; font-size: 12px; color: var(--text-muted);">&copy; 2025 Traki. All rights reserved.</p>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        const topBar = document.getElementById('topBar');
+        const backToTop = document.getElementById('backToTop');
+        const sections = document.querySelectorAll('.policy-section');
+
+        window.addEventListener('scroll', () => {
+            topBar.classList.toggle('scrolled', window.scrollY > 10);
+            backToTop.classList.toggle('visible', window.scrollY > 500);
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.04, rootMargin: '0px 0px -20px 0px' });
+
+        sections.forEach((sec, i) => {
+            sec.style.transitionDelay = `${i * 0.03}s`;
+            revealObserver.observe(sec);
+        });
+    </script>
+</body>
+</html>
